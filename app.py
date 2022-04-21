@@ -5,7 +5,7 @@ from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 import xml.etree.ElementTree as ET
-
+from pathlib import Path
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
@@ -30,6 +30,7 @@ def purchase_order():
     data_bin = request.data
     data = data_bin.decode("utf-8")
 
+    Path("./data").mkdir(parents=True, exist_ok=True)
     root = ET.fromstring(data)
     for elem in root.findall(".//ID"):
         file = open("./data/" + elem.text, "w")
