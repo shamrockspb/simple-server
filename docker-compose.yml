@@ -6,3 +6,4 @@ services:
       - "7001:8000"
     environment:
       - S4_PASSWORD=password
+    restart: always
