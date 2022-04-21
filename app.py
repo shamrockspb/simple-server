@@ -11,7 +11,7 @@ app = Flask(__name__)
 auth = HTTPBasicAuth()
 
 users = {
-    "s4user": generate_password_hash("E+[qE(-fjcS2kT.w")
+    "s4user": generate_password_hash(os.environ['S4_PASSWORD'])
 }
 
 
