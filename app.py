@@ -32,7 +32,7 @@ def purchase_order():
 
     Path("./data").mkdir(parents=True, exist_ok=True)
     root = ET.fromstring(data)
-    for elem in root.findall(".//ID"):
+    for elem in root.findall(".//PurchaseOrderID"):
         file = open("./data/" + elem.text, "w")
         file.write(data)
         file.close()
